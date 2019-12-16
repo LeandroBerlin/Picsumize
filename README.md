@@ -1,3 +1,14 @@
+# React fetch example
+
+This app use Props, States, Class and Functional components,conditional rendering and Lifecycle methods to fetch data from [Picsum API](https://picsum.photos/)
+
+## Life Cycle Methods
+
+![LCM](./LifeCycles.png)
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
