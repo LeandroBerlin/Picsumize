@@ -8,7 +8,6 @@ export default class Picsum extends Component {
         super(props);
         this.state = {
             url: 'https://picsum.photos/list',
-            source: '',
             fetch: false
         }
         console.log("CONSTRUCTOR")
