@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import Image from './Image'
+import Errors from './Errors';
 
 export default class Picsum extends Component {
 
@@ -32,11 +33,8 @@ export default class Picsum extends Component {
         try {
 
             const req = await fetch(this.state.url)
-
             const res = await req.json()
-
             //console.log(res)
-
             const random = Math.floor(
                 Math.random() * Object.keys(res).length
             )
@@ -44,13 +42,19 @@ export default class Picsum extends Component {
             console.log(
                 "STATE CHANGED"
             )
+
+
             this.setState({
                 fetch: true,
                 source: res[random]
             })
-
         }
         catch (error) {
+            console.log(error)
+            this.setState({
+                error: true,
+                message: "something happend"
+            })
             console.error(error)
         }
 
@@ -68,8 +72,10 @@ export default class Picsum extends Component {
         return (
             <div>
 
+                {this.state.error &&
+                    <Errors message={this.state.message} />
+                }
                 {this.state.fetch &&
-
                     < Image source={this.state.source} />
                 }
                 <form onSubmit={this.handleSubmit}>
